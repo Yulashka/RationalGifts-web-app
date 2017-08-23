@@ -2,9 +2,9 @@
 $pagename = get_query_var('pagename');  
 
 if (is_category()) {
-	$bread = array('home' => site_url(), "Categories" => "");
+	$bread = array('home' => site_url(), single_cat_title( '', false ) => "");
 } else if (is_tag()) {
-	$bread = array('home' => site_url(), "Tag" => "");
+	$bread = array('home' => site_url(), single_cat_title( '', false ) => "");
 } else if (is_search()) {
 	$bread = array('home' => site_url(), "Search" => "");
 } else if (is_page() || is_single()) {

@@ -42,3 +42,27 @@
   }); // end of document ready
 })(jQuery); // end of jQuery name space
 
+
+  function contact()
+    {
+        jQuery("#contactProgress").openModal();
+
+        var data = jQuery("#contactForm").serialize();
+    
+        jQuery.ajax(
+        {
+            type: "POST",
+            url: "http://rationalgifts.com/email.php",
+            data: data
+        }).done(function( msg ) {
+            jQuery("#contactProgress").closeModal();
+            jQuery("#contactSuccess").openModal();
+            jQuery('#contactForm')[0].reset();
+        }).fail(function( jqXHR, textStatus ) {
+            jQuery("#contactProgress").closeModal();
+            jQuery("#contactFail").openModal();
+            jQuery('#contactForm')[0].reset();
+            console.log(jqXHR.status) 
+        });
+        return false;
+    };

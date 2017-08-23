@@ -12,7 +12,7 @@ get_header();
         	<div class="col s12 m4 l4">
                 <div class="card">
                     <a href="<?php echo $persona ?>">
-                        <img class="responsive-img" src="<?php bloginfo('template_directory'); ?>/pictures/men/<?php echo $persona ?>.jpg" alt="Best gifts for <?php echo $persona ?>">
+                        <img class="responsive-img" src="<?php bloginfo('template_directory'); ?>/pictures/men/<?php echo strtolower($persona) ?>.jpg" alt="Best gifts for <?php echo $persona ?>">
                         <span class="float-bottom-right"><p class="flow-text pic-text"><?php echo $persona ?></p></span>
                     </a>
                 </div>

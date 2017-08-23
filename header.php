@@ -2,32 +2,43 @@
 <html <?php language_attributes(); ?> class="no-js">
 	<head>
 		<meta charset="<?php bloginfo('charset'); ?>">
-		<title><?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' :'; } ?> <?php bloginfo('name'); ?></title>
+		<title itemprop='name'><?php trim(wp_title('')); ?><?php if(wp_title('', false)) { echo ': '; } ?><?php bloginfo('name'); ?></title>
+        <?php if(  (isset($_SESSION['isHome']) && ($_SESSION['isHome']!=null)))  { 
+            $imageUrl = "http://rationalgifts.com/wp-content/uploads/2016/06/screenshot.jpg";
+            $desc = get_bloginfo('description');
+        } else if (get_post_type( get_the_ID() ) === 'page') { 
+            $imageUrl = "http://rationalgifts.com/wp-content/uploads/2016/06/screenshot.jpg";
+            $desc = get_bloginfo('description');
+        } else { 
+            $imageUrl = get_the_post_thumbnail_url() ;
+            $post_data = $wp_query->get_queried_object();
+            $post_content = $post_data->post_content;
+            $desc = wp_trim_words($post_content, 20);
+        };
+        if( isset($_SESSION['isHome']) && $_SESSION['isHome']!=null)  { 
+            $pageUrl = get_home_url();
+        } else { 
+            $pageUrl = get_permalink();
+        };
+        ?>
 
-		<link href="//www.google-analytics.com" rel="dns-prefetch">
-        <link href="<?php echo get_template_directory_uri(); ?>/img/icons/favicon.ico" rel="shortcut icon">
-        <link href="<?php echo get_template_directory_uri(); ?>/img/icons/touch.png" rel="apple-touch-icon-precomposed">
-
+		<link href="//www.google-analytics.com" rel="dns-prefetch">        
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="<?php bloginfo('description'); ?>">
-	    <link rel="canonical" href="https://rationalgifts.com/" itemprop="url">
-	    <title itemprop='name'>Rational Gifts</title>
-	    
+		<meta name="description" content="<?php echo $desc; ?>">
+	    <link rel="canonical" href="<?php echo $pageUrl;?>" itemprop="url">
 	    <!-- Facebook Meta Tags -->
-	    <meta property="og:title" content="Rational Gifts"/>
+	    <meta property="og:title" content="<?php trim(wp_title('')); ?><?php if(wp_title('', false)) { echo ': '; } ?><?php bloginfo('name'); ?>"/>
 	    <meta property="og:type" content="e-commerce"/>
-	    <meta property="og:image" content="http://rationalgifts.com/pictures/snipet.jpg"/>
-	    <meta property="og:url" content="http://rationalgifts.com"/>
-	    <meta property="og:description" content="Online gift shop cutomized by personality. Do you want to find something special for your loved ones, something good quality, great meaning and reasonable price? You don't know what are you looking for ... no problem! 
-	Rational Gifts is the place where all your wishes comes true. We categorize gifts by activity type to make shopping easy. You will find gifts that you friends really need, not some useless things, they will hide on the top shelf! Era of meaningful gifts is here! Shopping has never been easier!"/>
+	    <meta property="og:image" content="<?php echo $imageUrl;?>"/>
+	    <meta property="og:url" content="<?php echo $pageUrl;?>"/>
+	    <meta property="og:description" content="<?php echo $desc; ?>"/>
 
 	    <!-- CSS http://materializecss.com/ -->
 	    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,100' rel='stylesheet' type='text/css'>
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-	    <link rel="icon" type="image/png" href="favicon.png">
-
+	    <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/favicon.png">
 
 		<?php wp_head(); ?>
 

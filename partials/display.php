@@ -92,28 +92,24 @@ $query = new WP_Query( $args );
         <div class="col s12">
             <div class="row">
                 <div class="col s12">
-                    
-					<ul class="collection bg-white">
-        			
-				        	<div class="row margin-top-20px">
-                        	<?php foreach ($price_array as $key => $value): ?>
-                        	
-                                <div class="col l3 s6">
+					<div class="collection bg-white">
+			        	<div id="price-filter" class="row margin-top-20px">
+                    	<?php foreach ($price_array as $key => $value): ?>
+                            <div class="col l3 s6">
+								<a href="<?php echo add_query_arg( array('price' => $key) );?>" >
 									<?php if($key == $price) :?> 
-									<input name="price" type="checkbox" onclick="return false" id="price" checked="checked" />
+									<i class="fa fa-circle" aria-hidden="true"></i>
+									<?php else: ?>
+									<i class="fa fa-circle-o" aria-hidden="true"></i>
 									<?php endif; ?>
+									<?php echo $value ?>
+								</a>
 
-									<label for="price"><a href="<?php echo add_query_arg( array('price' => $key) );?>" ><?php echo $value ?></a></label>
-
-                                </div>
-                           
-                            <?php endforeach; ?>
-                         	</div>
-
-                        </li>
-
-					</ul>
-               
+                            </div>
+                       
+                        <?php endforeach; ?>
+                     	</div>
+					</div>
                 </div>
             </div>
         </div>

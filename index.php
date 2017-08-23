@@ -1,24 +1,5 @@
+<?php $_SESSION['isHome'] = true; ?>
 <?php get_header(); ?>
-
-
-<div class="row crumb-row margin-top">
-    <div class="nav-wrapper">
-        <div class="col s12" vocab="http://schema.org/" typeof="BreadcrumbList">
-            <div property="itemListElement" typeof="ListItem">
-            <a property="item" 
-                typeof="WebPage" 
-                ng-repeat="crumb in breadpath" 
-                href="{{crumb.link}}" 
-                class="breadcrumb" 
-                ng-cloak>
-                {{crumb.name}}
-                <meta property="name" content="{{crumb.name}}">
-                <meta property="position" content="{{$index + 1}}">
-            </a>
-        </div>
-        </div>
-    </div>
-</div>
 
 <div class="row" id="main-row">
     <div class="row center">

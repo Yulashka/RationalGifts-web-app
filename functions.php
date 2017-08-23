@@ -3,7 +3,7 @@
 /*------------------------------------*\
 	Global variables
 \*------------------------------------*/
-$personas = array('skier', 'crossfitter', 'hiker', 'climber', 'runner', 'yogi');
+$personas = array('Skier', 'Crossfitter', 'Hiker', 'Climber', 'Runner', 'Yogi');
 
 define("PRICE_ALL",     "all");
 define("PRICE_25",      "under25");
@@ -137,12 +137,12 @@ function pagination()
 }
 
 // Custom Excerpts
-function rational_wp_index($length) // Create 100 Word Callback for Index page Excerpts, call using rational_blankwp_excerpt('rational_wp_index');
+function rational_wp_index($length) // Create 100 Word Callback for Index page Excerpts, call using rational_wp_index('rational_wp_index');
 {
     return 100;
 }
 
-// Create 40 Word Callback for Custom Post Excerpts, call using rational_blankwp_excerpt('rational_blankwp_custom_post');
+// Create 40 Word Callback for Custom Post Excerpts, call using rational_wp_custom_post('rational_blankwp_custom_post');
 function rational_wp_custom_post($length)
 {
     return 40;

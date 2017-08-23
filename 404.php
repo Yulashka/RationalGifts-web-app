@@ -1,6 +1,5 @@
 <?php get_header(); 
 $bread = array('home' => site_url(), '404'=>'' );
-
 ?>
 
 <div class="container container-small margin-bottom-15 margin-top" >
@@ -33,7 +32,7 @@ $bread = array('home' => site_url(), '404'=>'' );
 
 					<h1>Page not found</h1>
 					
-					<a href="<?php echo home_url(); ?>">Lets go back home Home</a>
+					<a href="<?php echo home_url(); ?>">Lets go back home</a>
 					
 
 				</article>

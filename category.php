@@ -6,9 +6,6 @@
 	<div class="row margin-bottom-10" id="display-row">
         <div class="col s12">
             <div class="row">
-
-				<h5>Categories for <?php single_cat_title(); ?></h5>
-
 				<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 					<!-- article -->
 					<?php get_template_part('loop'); ?>

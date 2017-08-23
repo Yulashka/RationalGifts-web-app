@@ -7,7 +7,7 @@
 	        			<!-- post thumbnail -->
 						<?php if ( has_post_thumbnail()) : // Check if thumbnail exists ?>
 							<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-								<?php the_post_thumbnail( 'full', array( 'class' => 'responsive-img' ) ); // Declare pixel size you need inside the array ?>
+								<?php the_post_thumbnail( 'full', array( 'class' => 'responsive-img padded-image' ) ); // Declare pixel size you need inside the array ?>
 							</a>
 						<?php endif; ?>
 						<!-- /post thumbnail -->

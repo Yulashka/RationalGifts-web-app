@@ -23,6 +23,7 @@ body {
  
 /** MAIN STYLES*/
 
+
 .container-small {
   max-width: 900px;
   margin: auto;
@@ -58,6 +59,9 @@ html {
     font-family: Roboto, sans-serif;
 }
 
+#contactProgress {
+  width: 10% !important;
+}
 
 h1,h2,h3,h4,h5 {
   font-weight: 300 !important;
@@ -65,6 +69,12 @@ h1,h2,h3,h4,h5 {
 
 .font-size16px {
     font-size: 16px;
+}
+
+.padded-image {
+  padding-left: 25%;
+  padding-right: 25%;
+  padding-top: 3%;
 }
 
 .centered {
@@ -111,6 +121,11 @@ footer ul a {
   color: $primary-color;
 }
 
+nav ul, nav ul li,footer ul, footer ul li {
+  list-style-type: none;
+  padding-left: 0;
+}
+
 footer.page-footer .footer-copyright {
   background-color: $primary-color-darkest; 
 }
@@ -122,11 +137,6 @@ footer.page-footer .footer-copyright {
 
 .wc {
   line-height: 49px;
-}
-
-p a {
-  color: $primary-color-darkest;
-  text-decoration: underline;
 }
 
 .question {
@@ -147,7 +157,7 @@ p a {
 .back-to-top:hover {    
     background-color: $primary-color-dark;
 }
-.z-depth-1, nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-floating, .dropdown-content, .collapsible, .side-nav {
+.z-depth-1, nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-floating, .dropdown-content, .collapsible, .side-nav, #searchField {
   box-shadow: none;
 }
 
@@ -160,8 +170,14 @@ nav {
   border-bottom: 1px solid $primary-color-dark;
 }
 
-nav a, nav ul a, ul, li, .nav-text {
+nav a, nav ul a, .nav-text {
   color: $secondary-color;
+}
+
+ul, ul li, {
+  list-style-type: initial;
+  padding-left: 15px;
+  cursor: auto;
 }
 
 .crumb-row {
@@ -230,11 +246,12 @@ nav a, nav ul a, ul, li, .nav-text {
 }
 
 #searchField,
-#searchButton {
+#searchButton,
+#searchField:focus {
   height: 44px;
 }
 
-#searchField {
+#searchField, #searchField:focus {
   margin-left: 5px;
 }
 
@@ -313,6 +330,26 @@ label {
   padding: 0 35px 35px 35px;
 }
 
+.post-details {
+  padding: 0 35px 0 35px;
+}
+
+.post-tags-inner {
+  padding: 15px 25px 15px 25px;
+}
+
+.post-tags-inner a {
+  padding: 0 10px 0 10px;
+}
+
+.post-tags-outer {
+  background-color: $body;
+}
+
+#price-filter {
+  margin-left: 10px;
+}
+
 /** END DISPLAY */
 
 .bg-white {
@@ -366,9 +403,6 @@ img.responsive-image {
 @media (max-width: $large-screen){
 .search-wrapper i.material-icons {
     height: 40px;
-  }
-  #searchButton, #searchButton:focus, #searchButton:active {
-    top: 11px;
   }
 }
 
